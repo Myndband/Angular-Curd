@@ -1,0 +1,30 @@
+<h1>Add NG Form</h1>
+<button type="button" routerLink="/ng">Show Data</button>
+
+<div class="container">
+    <form #editForm="ngForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="data.name" #name="ngModel" name="name" class="form-control" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"   [(ngModel)]="data.username" #username="ngModel" name="username" class="form-control" placeholder="Enter Your Username">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text"  [(ngModel)]="data.email" #email="ngModel" name="email" class="form-control" placeholder="Enter Your Email">
+          </div>
+          <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" [(ngModel)]="data.phone" #phone="ngModel" name="phone" class="form-control" placeholder="Enter your phone number">
+            </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" [(ngModel)]="data.password" #password="ngModel" name="password" class="form-control" placeholder="Enter your password">
+          </div>
+          <button type="submit" (click)="editfetchData(editForm.value)" class="btn btn-primary m-3">Submit</button>
+      </form>
+</div>
+  
+  

@@ -1,0 +1,52 @@
+<h1>Add Reactive Form</h1>
+<button type="button" routerLink="/reactive">Show Data</button>
+
+<div class="container">
+    <form  [formGroup]="addForm" (ngSubmit)="postingData()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text"  [ngClass]="{'is-invalid':submitted && addForm.controls.name.errors}" class="form-control"  placeholder="Enter name" formControlName="name"/>
+        <div *ngIf="add.name.touched  && add.name.invalid"  class="errror-msg text-danger">
+          <div *ngIf="add.name.errors?.required" > This field is required !</div>
+          <div *ngIf="add.name.errors?.minlength" > Name should be minimum 5 character ! </div>
+          <div *ngIf="add.name.errors?.maxlength" > Name should be maximum 15 character   ! </div>
+          <div *ngIf="add.name.errors?.pattern" >  Only Alphabet is taken  ! </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [ngClass]="{'is-invalid':submitted && addForm.controls.email.errors}"   class="form-control"  placeholder="Enter email" formControlName="email"/>
+        <div *ngIf="add.email.touched  && add.email.invalid"  class="errror-msg text-danger">
+          <div *ngIf="add.email.errors?.required" > This field is required !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" [ngClass]="{'is-invalid':submitted && addForm.controls.username.errors}"  class="form-control"   placeholder="Enter username"  formControlName="username">
+        <div *ngIf="add.username.touched  && add.username.invalid"  class="errror-msg text-danger">
+          <div *ngIf="add.username.errors?.required" > This field is required !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" [ngClass]="{'is-invalid':submitted && addForm.controls.phone.errors}"   class="form-control"   placeholder="Enter phone" formControlName="phone" />
+        <div *ngIf="add.phone.touched  && add.phone.invalid"  class="errror-msg text-danger">
+          <div *ngIf="add.phone.errors?.required" > This field is required !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input  class="form-control" [ngClass]="{'is-invalid':submitted && addForm.controls.password.errors}"  type="password" placeholder="Enter password" formControlName="password"/>
+        <div *ngIf="add.password.touched  && add.password.invalid"  class="errror-msg text-danger">
+          <div *ngIf="add.password.errors?.required" > This field is required !</div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="addForm.invalid" class="btn btn-primary m-3">Submit</button>
+    </form>
+  </div>
+  
+  

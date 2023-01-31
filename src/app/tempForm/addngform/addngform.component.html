@@ -1,0 +1,51 @@
+<h1>Add NG Form</h1>
+<button type="button" routerLink="/ng">Show Data</button>
+
+<div class="container">
+    <form #addForm="ngForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" ngModel name="name" class="form-control" placeholder="Enter your name" id="name" #name="ngModel" minlength="3" maxlength="35"  required>
+            <div *ngIf="name.invalid && name.touched" class="errror-msg text-danger">
+              <div *ngIf="name.errors?.required" > This field is required !</div>
+              <div *ngIf="name.errors?.minlength" > name should be minimum 5 character ! </div>
+              <div *ngIf="name.errors?.maxlength" > name should be maximum 15 character   ! </div>
+              <div *ngIf="name.errors?.pattern" pattern="[a-zA-Z]">  only Alphabet is taken  ! </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"  ngModel name="username" class="form-control" placeholder="Enter Your Username" id="username" #username="ngModel" required>
+            <div *ngIf="username.invalid && username.touched" class="errror-msg text-danger">
+              <div *ngIf="username.errors?.required" > This field is required !</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text"  ngModel name="email" class="form-control"
+              placeholder="Enter Your Email" email id="email" #email="ngModel" required>
+              <div *ngIf="email.invalid && email.touched" class="errror-msg text-danger">
+                <div *ngIf="email.errors?.required" > This field is required !</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" ngModel name="phone" class="form-control"
+                placeholder="Enter your phone number" id="phone" #phone="ngModel" required>
+                <div *ngIf="phone.invalid && phone.touched" class="errror-msg text-danger">
+                  <div *ngIf="phone.errors?.required" > This field is required !</div>
+                </div>
+            </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text"  ngModel name="password" class="form-control"
+              placeholder="Enter your password" id="password" #password="ngModel" required>
+                <div *ngIf="password.invalid && password.touched" class="errror-msg text-danger">
+                  <div *ngIf="password.errors?.required" > This field is required !</div>
+                </div>
+          </div>
+          <button type="submit" [disabled]="addForm.invalid" (click)="addfetchData(addForm.value)" class="btn btn-primary m-3">Submit</button>
+      </form>
+</div>
+  
+  

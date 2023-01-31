@@ -1,0 +1,28 @@
+{
+  "User": [
+    {
+      "name": "Shilratna Dharmarakshak Chawhan",
+      "username": "Med@16056",
+      "email": "cshilratna@gmail.com",
+      "phone": "9096421662",
+      "password": "128852",
+      "id": 1
+    },
+    {
+      "name": "Subhash M B",
+      "username": "subhash121",
+      "email": "Subhash@gmail.com",
+      "phone": "9381581900",
+      "password": "128888",
+      "id": 2
+    },
+    {
+      "name": "shilratna516@gmail.com",
+      "email": "s",
+      "username": "s",
+      "phone": "s",
+      "password": "xs",
+      "id": 3
+    }
+  ]
+}

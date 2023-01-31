@@ -1,0 +1,38 @@
+<h1>Template Driven Forms</h1>
+<button routerLink="/add-ng">Add Data</button>
+<button routerLink="/allin-One" style="float: right;">All In One</button>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Password</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of Data;let i = index" #massage>
+                <th scope="row">{{i+1}}</th>
+                <td>{{e.name}}</td>
+                <td>{{e.username}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.phone}}</td>
+                <td>{{e.password}}</td>
+                <td routerLink="/edit-ng/{{e.id}}"><button>edit</button></td>
+                <td (click)="fetchdeleteData(e)"><button>delete</button></td>
+
+              </tr>
+              <tr *ngIf="Data.length==0">
+                <td scope="row">Data not available</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<h1>NG Forms All In One</h1>
+<button routerLink="/ng">Go to Homepage</button>
+<br>
+<button (click)="clickAddUser()"  class="btn btn-success m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Add User Data</button>
+<div class="container">
+  <div class="row">
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Password</th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of Data;let i = index" #massage>
+          <th scope="row">{{i+1}}</th>
+          <td>{{e.name}}</td>
+          <td>{{e.username}}</td>
+          <td>{{e.email}}</td>
+          <td>{{e.phone}}</td>
+          <td>{{e.password}}</td>
+          <td (click)="edit(e)" data-bs-toggle="modal" data-bs-target="#exampleModal"><button>edit</button></td>
+          <td (click)="fetchdeleteData(e)"><button>delete</button></td>
+        </tr>
+        <tr *ngIf="Data.length==0">
+          <td scope="row">Data not available</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+     
+
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Data Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="history.go(0)"></button>
+        </div>
+        <div class="modal-body">
+            <form #formvalue="ngForm" >
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" [(ngModel)]="DataModalObj.name" name="name" class="form-control" placeholder="Enter your name">
+                  </div>
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"  [(ngModel)]="DataModalObj.username" name="username" class="form-control" placeholder="Enter Your Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"  [(ngModel)]="DataModalObj.email" name="email" class="form-control"
+                      placeholder="Enter Your Email">
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Phone Number</label>
+                      <input type="text" [(ngModel)]="DataModalObj.phone" name="phone" class="form-control"
+                        placeholder="Enter your phone number">
+                    </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text"  [(ngModel)]="DataModalObj.password" name="password" class="form-control"
+                      placeholder="Enter your password">
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal" onclick="history.go(0)">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="addfetchData(formvalue.value)" class="btn btn-primary">Add</button>
+          <button type="button" *ngIf="showUpdate" (click)="fetchupdateData()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  
+
