@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../service/web.service';
 
@@ -9,7 +10,7 @@ import { WebService } from '../service/web.service';
 export class ViewngformComponent implements OnInit {
 
   Data: any;
-  constructor(private web:WebService) { }
+  constructor(private web:WebService,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.fetchgetData();
@@ -18,6 +19,7 @@ export class ViewngformComponent implements OnInit {
   fetchgetData(){
     this.web.getData().subscribe((resp)=>{
       this.Data = resp;
+      console.log(resp);
     },
     (error)=>{
       console.log(error);
@@ -33,4 +35,10 @@ export class ViewngformComponent implements OnInit {
       console.log(error);
     })
   }
+
+  //update 
+  edit(e:any){
+    this.web.setTemp(e);
+  }
+  
 }

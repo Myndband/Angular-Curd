@@ -17,14 +17,27 @@ export class AllInOneComponent implements OnInit {
   Data: any;
   constructor(private api:ApiService,private formbuilder: FormBuilder,) { }
 
+  reader:any;
   ngOnInit(): void {
     this.fetchgetData();
      this.formValue = this.formbuilder.group({
+      avatar:[''],
       name: [''],
       email: [''],
       phone: [''],
       password: [''],
       username: [''],
+    });
+
+    // image upload
+    let fileInput: any = document.getElementById('fileInput');
+    fileInput.addEventListener('change', (e: any) => {
+      let file = fileInput.files[0];
+      this.reader = new FileReader();
+      this.reader.addEventListener('load', () => {
+        console.log(this.reader.result);
+      });
+      this.reader.readAsDataURL(file);
     });
   }
 
@@ -37,9 +50,11 @@ export class AllInOneComponent implements OnInit {
     })
   }
   fetchdeleteData(data:any){
+    if(confirm("Are you sure to delete ?? "))
     this.api.deleteData(data.id).subscribe((resp)=>{
       console.log(resp);
       alert('Data deleted succesfully');
+      this.fetchgetData();
       window.location.reload();
     },
     (error)=>{
@@ -54,6 +69,8 @@ export class AllInOneComponent implements OnInit {
       }
       postuserDetails(){
         console.log('Inside posting');
+        // this.reader.result = this.formValue.value.avatar;
+          this.usrModalObj.avatar = this.reader.result;        
           this.usrModalObj.name = this.formValue.value.name;
           this.usrModalObj.email = this.formValue.value.email;
           this.usrModalObj.password = this.formValue.value.password;
@@ -78,6 +95,7 @@ export class AllInOneComponent implements OnInit {
         this.showAdd=false;
         this.showUpdate=true;
         this.usrModalObj.id=data.id;
+        this.formValue.controls['avatar'].setValue(data.avatar);
         this.formValue.controls['name'].setValue(data.name);
         this.formValue.controls['email'].setValue(data.email);
         this.formValue.controls['phone'].setValue(data.phone);
@@ -85,6 +103,7 @@ export class AllInOneComponent implements OnInit {
         this.formValue.controls['username'].setValue(data.username);
       }
       editUser(){
+        this.usrModalObj.avatar=this.formValue.value.avatar;
         this.usrModalObj.name=this.formValue.value.name;
         this.usrModalObj.email=this.formValue.value.email;
         this.usrModalObj.phone=this.formValue.value.phone;

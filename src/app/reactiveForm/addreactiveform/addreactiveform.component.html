@@ -13,13 +13,16 @@
           <div *ngIf="add.name.errors?.pattern" >  Only Alphabet is taken  ! </div>
         </div>
       </div>
-  
+      
       <div class="form-group">
         <label>Email</label>
         <input type="email" [ngClass]="{'is-invalid':submitted && addForm.controls.email.errors}"   class="form-control"  placeholder="Enter email" formControlName="email"/>
         <div *ngIf="add.email.touched  && add.email.invalid"  class="errror-msg text-danger">
           <div *ngIf="add.email.errors?.required" > This field is required !</div>
         </div>
+            <!-- <div class="alert alert-danger" *ngIf="submitted && f['Comments'].errors"  >
+                  this field is required 
+              </div> -->
       </div>
   
       <div class="form-group">

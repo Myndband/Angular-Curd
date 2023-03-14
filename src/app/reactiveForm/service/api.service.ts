@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -21,15 +21,32 @@ export class ApiService {
   postData(data:any) {
     return this.http.post<any>(this.url+"/User", data);
   }
+
+  //how to do unit testing?
   // DELETE
   deleteData(id:any){
     return this.http.delete<any>(this.url+"/User/"+id);
   }
   // UPDATE
+   // for individual
+   temp:any;
+   setTemp(data:any){
+     this.temp=data;
+   }
+   updatedata(data:any){
+     return this.http.put<any>(this.url+"/User/"+data.id,data);
+   }
+
+   // for seperately
   getupdateDataById(id:any){
     return this.http.get<any>(this.url+"/User/"+id);
    }
   updateData(data:any,id:any){
-    return this.http.put<any>(this.url+"/User/"+id,data);
+    return this.http.put<any>(this.url+"/User/"+id,data).pipe(map((res) => { 
+      console.log(res) 
+      return res; 
+    }), catchError((error) => {
+       console.log(error)
+       return throwError(error);}));
   }
 }

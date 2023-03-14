@@ -20,6 +20,7 @@ export class EditreactiveformComponent implements OnInit {
   })
   mydata: any = '';
   ID:any=this.route.snapshot.params.id;
+  Data: any;
   constructor(public api: ApiService,private route:ActivatedRoute,private router:Router,private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -31,7 +32,19 @@ export class EditreactiveformComponent implements OnInit {
     //   password: [''],
     //   username: [''],
     // });
+    this.Data=this.api.temp;
   }
+     // for diferent method 
+  update(){
+    this.api.updatedata(this.Data).subscribe((resp)=>{
+      console.log(resp);
+      alert("Data updated succesfully")
+      location.assign('/reactive')
+    })
+  }
+
+
+
   updatingData(){
     this.api.updateData(this.editForm.value,this.ID).subscribe( (resp)=> {
       console.log(resp);

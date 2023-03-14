@@ -11,9 +11,20 @@ export class EditngformComponent implements OnInit {
 
   constructor(private web:WebService,private route:ActivatedRoute,private router:Router,) { }
   data:any;
+  Data:any;
   ID:any=this.route.snapshot.paramMap.get('id');
   ngOnInit(): void {
     this.fetchgetupdateDataById();
+    // for diferent method 
+    this.Data=this.web.temp;
+  }
+     // for diferent method 
+  update(){
+    this.web.updateData(this.Data).subscribe((resp)=>{
+      console.log(resp);
+      alert("Data updated succesfully")
+      location.assign('/ng')
+    })
   }
 
   fetchgetupdateDataById(){

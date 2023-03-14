@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>login</h1>
+                
+                    <hr>
+                </div>
+                <form [formGroup]="loginform" (ngSubmit)="proceedlogin()">
+                    <div class="mb-3">
+                        <label  class="form-label">Username</label>
+                        <input formControlName="id" class="form-control" placeholder="enter your username" >
+                      </div>
+                      <div class="mb-3">
+                        <label  class="form-label">Password</label>
+                        <input formControlName="password" type="password" class="form-control" placeholder="enter your password">
+                      </div>
+                    <button type="submit" class="btn btn-primary">LogIn</button>
+                  </form>
+                  <p routerLink="/register">New User ? Click to Register !</p>
+            </div>
+        </div>
+    </div>
+</div>

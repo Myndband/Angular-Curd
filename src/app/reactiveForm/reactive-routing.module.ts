@@ -9,6 +9,7 @@ const routes: Routes = [
   // {path:"",redirectTo:'/reactive',pathMatch:'full'},
   {path:"reactive",component:ViewreactiveformComponent},
   {path:"edit-reactive/:id",component:EditreactiveformComponent},
+  {path:"edit-reactive",component:EditreactiveformComponent},
   {path:"add-reactive",component:AddreactiveformComponent},
   {path:"all-In-One",component:AllInOneComponent}
 

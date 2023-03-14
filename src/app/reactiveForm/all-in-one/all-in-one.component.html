@@ -9,6 +9,7 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Avatar</th>
                 <th scope="col">Name</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
@@ -21,6 +22,7 @@
             <tbody>
               <tr *ngFor="let e of Data;let i = index">
                 <th scope="row">{{i+1}}</th>
+                <td><img src="{{e.avtar}}" alt="Avatar" class="image"></td>
                 <td>{{e.name}}</td>
                 <td>{{e.username}}</td>
                 <td>{{e.email}}</td>
@@ -46,8 +48,13 @@
         </div>
         <div class="modal-body">
             <form [formGroup]="formValue">
+              <div class="form-group">
+                <label for="name">Aavtar</label> 
+                <div><img src="{{reader.result}}" alt="Image preview..." class="image"></div>
+                <input type="file" id="fileInput" formControlName="avatar">
+              </div>
+
                 <div class="mb-3">
-        
                   <label for="exampleInputEmail1" class="form-label">Name</label>
                   <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>

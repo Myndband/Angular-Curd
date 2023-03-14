@@ -16,11 +16,20 @@ export class ViewreactiveformComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchgetData();
+
   }
 
+  // name: any = "";
+  // username: any = "";
+  // email: any = "";
+  // phone: any = "";
+  // password: any = "";
   fetchgetData(){
     this.api.getData().subscribe((resp)=>{
       this.Data = resp;
+      //   for (var val of this.Data) {
+      //   this.name = this.name + val.name;
+      // }
     },
     (error)=>{
       console.log(error);
@@ -37,4 +46,11 @@ export class ViewreactiveformComponent implements OnInit {
     })
   }
 
+    //update 
+    edit(e:any){
+      this.api.setTemp(e);
+    }
+  
+
+   
 }

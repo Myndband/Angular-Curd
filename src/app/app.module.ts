@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,15 +13,19 @@ import { ViewreactiveformComponent } from './reactiveForm/viewreactiveform/viewr
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveModule } from './reactiveForm/reactive.module';
 import { TempformModule } from './tempForm/tempform.module';
+import { DynamicComponent } from './dynamic/dynamic/dynamic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DynamicComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     ReactiveModule,
     TempformModule
   ],
