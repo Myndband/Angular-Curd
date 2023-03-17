@@ -25,3 +25,35 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+HTML 1
+http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/tags/att_ul_type.asp.html#gsc.tab=0
+CSS 1
+https://www.geeksforgeeks.org/html-th-valign-attribute/?ref=rp
+JAVASCRIPT 6 (1 plt)
+https://github.com/Asabeneh/30-Days-Of-JavaScript
+https://github.com/Asabeneh/30-Days-Of-JavaScript/blob/master/02_Day_Data_types/02_day_data_types.md
+TYPESCRIPT 4 nd echma script 
+
+ANGULAR 8
+Folder structure
+Routing 
+Directive 
+https://github.com/Fakhreddine10/Angular-Custom-Directive
+Pipes
+https://jojozhuang.github.io/tutorial/angular-pipes/
+Parent to child, child to paren't data and queryparams and navigated by url
+
+https://stackblitz.com/edit/angular-parent-to-child-communication?file=src%2Fapp%2Fapp.component.ts
+
+https://stackblitz.com/edit/passing-data-from-child-to-parent-in-angular?file=src%2Fapp%2Fapp.component.ts
+
+https://stackoverflow.com/questions/44864303/send-data-through-routing-paths-in-angular
+
+Json-nested json
+Service
+Models
+Forms
