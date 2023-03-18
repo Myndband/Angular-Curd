@@ -31,6 +31,7 @@ export class AddreactiveformComponent implements OnInit {
   get add(){
     return this.addForm.controls
    }
+//    get name()  {  return this.patientForm.get('name') }
   postingData() {
     // validation
     this.submitted = true
