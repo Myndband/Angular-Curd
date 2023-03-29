@@ -19,7 +19,14 @@ export class ApiService {
   }
   //POST
   postData(data:any) {
-    return this.http.post<any>(this.url+"/User", data);
+    return this.http.post<any>(this.url+"/User", data).pipe(
+      map((resp) => {
+        return resp;
+      },
+      catchError((error) => {
+        return throwError(error);
+      }))
+    );
   }
   // DELETE
   deleteData(id:any){
