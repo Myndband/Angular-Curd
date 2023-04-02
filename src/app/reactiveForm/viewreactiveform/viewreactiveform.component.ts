@@ -3,7 +3,11 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 import { userModal } from '../model/user';
+// import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+// @UntilDestroy()
+// npm i @ngneat/until-destroy
+// "@ngneat/until-destroy": "^9.2.3",
 @Component({
   selector: 'app-viewreactiveform',
   templateUrl: './viewreactiveform.component.html',
@@ -19,7 +23,7 @@ export class ViewreactiveformComponent implements OnInit {
   }
 
   fetchgetData(){
-    this.api.getData().subscribe((resp)=>{
+    this.api.getData().pipe(untilDestroyed(this)).subscribe((resp)=>{
       this.Data = resp;
     },
     (error)=>{
@@ -38,3 +42,4 @@ export class ViewreactiveformComponent implements OnInit {
   }
 
 }
+
